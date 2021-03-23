@@ -1,0 +1,2 @@
+..\boya\Scripts\activate
+

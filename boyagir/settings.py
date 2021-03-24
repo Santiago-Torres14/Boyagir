@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 #heroku builds:cancel
 #heroku addons:create heroku-postgresql:hobby-dev
 #heroku pg:reset DATABASE_URL --confirm boyagir 
+import django_heroku
 import os
 from pathlib import Path
 
@@ -100,8 +101,8 @@ DATABASES = {
         default=config('DATABASE_URL')
     )
 }
-import django_heroku
-django_heroku.settings(locals())
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -147,3 +148,4 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_heroku.settings(locals())

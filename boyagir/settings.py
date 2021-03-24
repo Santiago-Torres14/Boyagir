@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 #heroku builds:cancel
+#heroku addons:create heroku-postgresql:hobby-dev
+#heroku pg:reset DATABASE_URL --confirm boyagir 
 import os
 from pathlib import Path
 
@@ -38,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'boyaapp',
+    'boyaap\p',
     'rest_framework'
 ]
 

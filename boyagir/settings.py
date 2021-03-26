@@ -80,13 +80,13 @@ WSGI_APPLICATION = 'boyagir.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'boya',
-        'USER':"postgres",
-        'PASSWORD':'12345',
-        'HOST':'127.0.0.1',
+        'NAME':'dc74kg8uop7sa',
+        'USER':"btcssdogkkwroz",
+        'PASSWORD':'239e628c6bfababe4fa293524a1ce6792decc69709c18a784085a3600cdc8dd4',
+        'HOST':'ec2-54-205-183-19.compute-1.amazonaws.com',
         'PORT':'5432'
      
 
@@ -101,7 +101,7 @@ DATABASES = {
         default=config('DATABASE_URL')
     )
 }
-
+'''
 
 
 # Password validation

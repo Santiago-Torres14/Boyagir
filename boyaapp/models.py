@@ -9,7 +9,7 @@ class Boya (models.Model):
     Nombre_Boya= models.CharField(max_length=50) 
     Latitud =models.CharField(max_length=50) 
     Longitud =models.CharField(max_length=50)  
-class Sensor  (models.Model): 
+''''class Sensor  (models.Model): 
     Boya = models.ForeignKey(Boya, null=True, blank=True, on_delete=models.CASCADE)
     Tipo_Sensor= models.CharField(max_length=10) 
     Codigo_Sensor= models.IntegerField(10)
@@ -33,3 +33,5 @@ class Alerta (models.Model):
     Evento = models.OneToOneField(Evento, null=True, blank=True, on_delete=models.CASCADE) 
     Nivel=models.CharField(max_length=100)
     Descripcion=models.TextField(200)
+'''
+

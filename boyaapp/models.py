@@ -8,19 +8,31 @@ from django.contrib.postgres.fields import ArrayField
 class Boya (models.Model): 
     Nombre_Boya= models.CharField(max_length=50) 
     Latitud =models.CharField(max_length=50) 
-    Longitud =models.CharField(max_length=50)  
+    Longitud =models.CharField(max_length=50) 
+    class Meta:
+        verbose_name = 'Boya'
+        verbose_name_plural = 'Boyas'
+ 
 class Sensor  (models.Model): 
     Boya = models.ForeignKey(Boya, null=True, blank=True, on_delete=models.CASCADE)
     Tipo_Sensor= models.CharField(max_length=10) 
     Codigo_Sensor= models.IntegerField(10)
     Voltaje=models.IntegerField()
     Referencia= models.TextField(10)
+    class Meta:
+        verbose_name = 'Sensor'
+        verbose_name_plural = 'Sensores'
+
 class Afluente (models.Model):
     Boya = models.ForeignKey(Boya, null=True, blank=True, on_delete=models.CASCADE) 
     Codigo_Afluente= models.IntegerField(10)
     Nombre_Afluente=models.CharField(max_length=100)
     Nombre_de_departamento=models.CharField(max_length=100)
     Nombre_de_municipio=models.CharField(max_length=100)
+    class Meta:
+        verbose_name = 'Afluente'
+        verbose_name_plural = 'Afluentes'
+
 class Medicion (models.Model):
     Boya = models.ForeignKey(Boya, null=True, blank=True, on_delete=models.CASCADE)
    # Medicion = JSONField()
@@ -29,8 +41,16 @@ class Medicion (models.Model):
 class Evento (models.Model): 
     Medicion = models.ForeignKey(Medicion, null=True, blank=True, on_delete=models.CASCADE)
     Descripcion=models.TextField(200) 
+    class Meta:
+        verbose_name = 'Evento'
+        verbose_name_plural = 'Eventos'
+
 class Alerta (models.Model):
     Evento = models.OneToOneField(Evento, null=True, blank=True, on_delete=models.CASCADE) 
     Nivel=models.CharField(max_length=100)
     Descripcion=models.TextField(200)
+    class Meta:
+        verbose_name = 'Alerta'
+        verbose_name_plural = 'Alertas'
+
 

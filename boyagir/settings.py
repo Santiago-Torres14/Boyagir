@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'boyagir.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -93,7 +93,19 @@ DATABASES = {
 
     }
 }
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'boya',
+        'USER':"postgres",
+        'PASSWORD':'12345',
+        'HOST':'127.0.0.1',
+        'PORT':'5432'
+     
 
+    }
+}
 '''
 import dj_database_url
 from decouple import config

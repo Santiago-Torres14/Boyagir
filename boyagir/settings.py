@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 #heroku builds:cancel
 #heroku addons:create heroku-postgresql:hobby-dev
 #heroku pg:reset DATABASE_URL --confirm boyagir 
+#heroku create myapp --buildpack heroku/python    
 import django_heroku
 import os
 from pathlib import Path

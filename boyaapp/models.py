@@ -1,8 +1,8 @@
 from django.db import models
 
 # Create your models here.
-from django.contrib.postgres.fields import ArrayField
-#from django.contrib.postgres.fields import JSONField
+#from django.contrib.postgres.fields import ArrayField
+from django.contrib.postgres.fields import JSONField
 
 # Create your models here.
 class Boya (models.Model): 
@@ -35,8 +35,8 @@ class Afluente (models.Model):
 
 class Medicion (models.Model):
     Boya = models.ForeignKey(Boya, null=True, blank=True, on_delete=models.CASCADE)
-   # Medicion = JSONField()
-    Medicion=models.CharField(max_length=100)
+    Medicion = JSONField()
+    #Medicion=models.CharField(max_length=100)
     Fecha=models.DateTimeField(auto_now_add=True)
 class Evento (models.Model): 
     Medicion = models.ForeignKey(Medicion, null=True, blank=True, on_delete=models.CASCADE)

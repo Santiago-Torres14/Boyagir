@@ -83,14 +83,14 @@ WSGI_APPLICATION = 'boyagir.wsgi.application'
 CORS_ORIGIN_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'dc74kg8uop7sa',
-        'USER':"btcssdogkkwroz",
-        'PASSWORD':'239e628c6bfababe4fa293524a1ce6792decc69709c18a784085a3600cdc8dd4',
-        'HOST':'ec2-54-205-183-19.compute-1.amazonaws.com',
+        'NAME':'d6tthilkpi3n4p',
+        'USER':"hmazaknkcsgosk",
+        'PASSWORD':'8e2ac8da4f3602f7ce0685ecab0ca475027ed73ccafc259d7309ef1dcfa3662a',
+        'HOST':'ec2-54-224-120-186.compute-1.amazonaws.com',
         'PORT':'5432'
      
 

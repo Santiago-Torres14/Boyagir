@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 #hh
 #heroku addons:create heroku-postgresql:hobby-dev
 #heroku pg:reset DATABASE_URL --confirm boyagir 
-#heroku create myapp --buildpack heroku/python    
+#heroku create myapp --buildpack heroku/python   
+#  heroku git:remote -a blogpilo 
 import django_heroku
 import os
 from pathlib import Path
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'boyaapp',
     'rest_framework'
 ]
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -77,7 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'boyagir.wsgi.application'
 
-
+CORS_ORIGIN_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 '''
@@ -97,7 +100,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'boya',
+        'NAME':'boyagir',
         'USER':"postgres",
         'PASSWORD':'12345',
         'HOST':'127.0.0.1',

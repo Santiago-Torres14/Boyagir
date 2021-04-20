@@ -9,5 +9,5 @@ router.register("api/alerta",AlertaViewSet,"alerta")
 router.register("api/departamento",DepartamentoViewSet,"departamento")
 router.register("api/municipio",MunicipioViewSet,"municipio")
 router.register("api/circuito",CircuitoViewSet,"circuito")
-router.register("api/practica",PracticaViewSet,"circuito")
+
 urlpatterns=router.urls

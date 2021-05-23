@@ -1,4 +1,5 @@
 from django.db import models
+from simple_history.models import HistoricalRecords
 
 # Create your models here.
 #from django.contrib.postgres.fields import ArrayField
@@ -10,6 +11,9 @@ class Practica(models.Model):
     surname=models.CharField(max_length=40)
     birthyear=models.DateTimeField()
     birthplace=models.CharField(max_length=20)
+    history = HistoricalRecords()
+    
+         
 class Departamento(models.Model):
     nombre = models.CharField(max_length=200, unique=True)
 
@@ -19,14 +23,20 @@ class Municipios(models.Model):
 class Dano(models.Model):
     pass
 class Afluente (models.Model):
-    nombre=models.CharField(max_length=100)
+    codRio = models.AutoField(primary_key=True)
+    nombreAfluente=models.CharField(max_length=100)
+    history = HistoricalRecords()
     class Meta:
+        
+       
         verbose_name = 'Afluente'
         verbose_name_plural = 'Afluentes'
+    
 class Sensor  (models.Model): 
-    Tipo_Sensor= models.CharField(max_length=10) 
+    Tipo_Sensor= models.CharField(max_length=40) 
     Voltaje=models.IntegerField()
     Referencia= models.TextField()
+    
 class Circutio  (models.Model): 
     codSensor=models.ForeignKey(Sensor, null=True, blank=True, on_delete=models.CASCADE)
     nombre=models.CharField(max_length=100)
@@ -77,6 +87,11 @@ class Alerta (models.Model):
         verbose_name = 'Alerta'
         verbose_name_plural = 'Alertas'
 
+class Artista(models.Model):
+    artista=models.CharField(max_length=50)
+    pais=models.CharField(max_length=50)
+    genero=models.CharField(max_length=50)
+    ventas=models.FloatField()
 
 
 

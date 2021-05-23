@@ -1,2 +1,2 @@
-..\boya\Scripts\activate
+..\..\django\boya\Scripts\activate
 

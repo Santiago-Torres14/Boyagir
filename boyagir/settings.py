@@ -45,10 +45,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'boyaapp',
-    'rest_framework'
+    'accounts',
+   
+    'knox',
+    'rest_framework',
+    'simple_history',
+   
+
 ]
 
 MIDDLEWARE = [
+    'simple_history.middleware.HistoryRequestMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -65,7 +72,7 @@ ROOT_URLCONF = 'boyagir.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR.joinpath("build")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,6 +86,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'boyagir.wsgi.application'
+ASGI_APPLICATION = 'boyagir.asgi.application'
+
 
 CORS_ORIGIN_ALLOW_ALL = True
 # Database
@@ -87,10 +96,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'d6tthilkpi3n4p',
-        'USER':"hmazaknkcsgosk",
-        'PASSWORD':'8e2ac8da4f3602f7ce0685ecab0ca475027ed73ccafc259d7309ef1dcfa3662a',
-        'HOST':'ec2-54-224-120-186.compute-1.amazonaws.com',
+        'NAME':'d1ej1jq20clph',
+        'USER':"nvjkbszvixazzs",
+        'PASSWORD':'aa3c99caadb93caa0f180259361174be13f4ca207fd5748d738a9294d47c3d78',
+        'HOST':'ec2-35-170-85-206.compute-1.amazonaws.com',
         'PORT':'5432'
      
 
@@ -104,14 +113,24 @@ DATABASES = {
         'USER':"postgres",
         'PASSWORD':'12345',
         'HOST':'127.0.0.1',
-        'PORT':'5432'
+        'PORT':'5432',
+  #      'OPTIONS':{
+  #          'init_command':"SET sql_mode='STRICT_TRANS_TABLES'",
+  #      }
      
 
     }
 }
 '''
-
-
+'''CHANNELS_LAYERS={
+    'default':{
+        'BACKEND':'channels_redis.core.RedisChannelLayer',
+        'CONFIG':{
+            'hosts':[{'127.0.0.1',6379}]
+        }
+    }
+}
+'''
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -136,7 +155,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
+'''CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE'''
 
 USE_I18N = True
 

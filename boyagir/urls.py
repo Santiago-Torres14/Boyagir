@@ -17,7 +17,14 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
+from boyaapp.views import Index
+
 urlpatterns = [
+    path("login/",Index.as_view(), name='index'),
     path('admin/', admin.site.urls),
-     path('',include("boyaapp.urls"))
+     path('',include("boyaapp.urls")),
+      path('', include('accounts.urls')),
+     # path('real/',include("graphrealtime.urls"))
+   
+
 ]+  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

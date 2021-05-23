@@ -3,6 +3,17 @@ from .models import *
 from rest_framework import viewsets,permissions
 from rest_framework.filters import SearchFilter
 from rest_framework import mixins, status, viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+@api_view(['GET'])
+def  foraneasBoya(request):
+    municipios=Municipios.objects.all()
+    afluente=Afluente.objects.all()
+    BoyaMuni=MunicipiosSerializer(municipios,many=True)
+    BoyaAfluente=AfluenteSerializer(afluente,many=True)
+    resultadoBoya=BoyaMuni.data+BoyaAfluente.data
+    return Response(resultado)
 
 class BoyaViewSet(viewsets.ModelViewSet):
     queryset=Boya.objects.all()
@@ -48,6 +59,18 @@ class CircuitoViewSet(viewsets.ModelViewSet):
     queryset=Circutio.objects.all()
     permision_classes=[permissions.AllowAny]
     serializer_class=CircuitoSerializer
+class ArtistaViewSet(viewsets.ModelViewSet):
+    queryset=Artista.objects.all()
+    permision_classes=[permissions.AllowAny]
+    
+    serializer_class=ArtistaSerializer
+class AfluentesViewSet(viewsets.ModelViewSet):
+    permision_classes=[permissions.AllowAny]
+    serializer_class=BoyaTSerializer
+
+
+
+
 
 
 

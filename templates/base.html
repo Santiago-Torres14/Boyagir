@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+
+<head>
+    <title>
+        real time
+    </title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto mt-5">
+            <!--    <canvas id="myChart" width="400" height="400"></canvas>-->
+            <div id="text">{{text}}</div>
+            </div>
+        </div>
+    </div>
+  
+<!--<script src="{% static 'main.js' %}"></script>-->
+<script>
+    var socket=new WebSocket('ws://127.0.0.1:8000/ws/graph/');
+    socket.onmessage=function(event){
+        var medicion=event.data;
+        document.querySelector("#text").innerText=medicion;
+    }
+    alert('pails')
+</script>
+
+</body>
+
+</html>

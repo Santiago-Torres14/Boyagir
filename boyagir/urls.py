@@ -21,6 +21,7 @@ from boyaapp.views import Index
 
 urlpatterns = [
     path("login/",Index.as_view(), name='index'),
+      path("app/dashboard",Index.as_view(), name='index'),
     path('admin/', admin.site.urls),
      path('',include("boyaapp.urls")),
       path('', include('accounts.urls')),

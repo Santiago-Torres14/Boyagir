@@ -96,20 +96,18 @@ CORS_ORIGIN_ALLOW_ALL = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'d7johlo1g9pp22',
-        'USER':"giutgohkwrosum",
-        'PASSWORD':'70b625a6926ee5c72acc56768c207c91719219b26f5f58295285199b939f3d4c',
-        'HOST':'ec2-174-129-225-160.compute-1.amazonaws.com',
+        'NAME':'d3kfap38n52cf4',
+        'USER':"ivubxxkfmlnved",
+        'PASSWORD':'e641a51f5fb52b00f8aa3e40f37fde28892b95200574066ebbc174f5c616d210',
+        'HOST':'ec2-54-152-185-191.compute-1.amazonaws.com',
         'PORT':'5432'
-     
-
-    }
+     }
 }
 '''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'boyagir',
+        'NAME':'boyagir2',
         'USER':"postgres",
         'PASSWORD':'12345',
         'HOST':'127.0.0.1',
@@ -121,8 +119,8 @@ DATABASES = {
 
     }
 }
-'''
-'''CHANNELS_LAYERS={
+
+CHANNELS_LAYERS={
     'default':{
         'BACKEND':'channels_redis.core.RedisChannelLayer',
         'CONFIG':{

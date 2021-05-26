@@ -49,14 +49,13 @@ INSTALLED_APPS = [
    
     'knox',
     'rest_framework',
-    'simple_history',
+    
    
 
 ]
 
 MIDDLEWARE = [
-    'simple_history.middleware.HistoryRequestMiddleware',
-    'django.middleware.security.SecurityMiddleware',
+     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -86,7 +85,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'boyagir.wsgi.application'
-ASGI_APPLICATION = 'boyagir.asgi.application'
+#ASGI_APPLICATION = 'boyagir.asgi.application'
 
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -96,18 +95,19 @@ CORS_ORIGIN_ALLOW_ALL = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'d3kfap38n52cf4',
-        'USER':"ivubxxkfmlnved",
-        'PASSWORD':'e641a51f5fb52b00f8aa3e40f37fde28892b95200574066ebbc174f5c616d210',
-        'HOST':'ec2-54-152-185-191.compute-1.amazonaws.com',
+        'NAME':'dd8rdftt88l9rn',
+        'USER':"nzdshxplyjyzoz",
+        'PASSWORD':'c402f6b26a24e86ff6216107134e0db9d6bdcad3ed7d4dfd02038b845ef383ff',
+        'HOST':'ec2-34-193-112-164.compute-1.amazonaws.com',
         'PORT':'5432'
      }
 }
 '''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'boyagir2',
+        'NAME':'boyagir',
         'USER':"postgres",
         'PASSWORD':'12345',
         'HOST':'127.0.0.1',

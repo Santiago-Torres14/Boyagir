@@ -1,5 +1,5 @@
 from django.db import models
-from simple_history.models import HistoricalRecords
+
 
 # Create your models here.
 #from django.contrib.postgres.fields import ArrayField
@@ -11,7 +11,7 @@ class Practica(models.Model):
     surname=models.CharField(max_length=40)
     birthyear=models.DateTimeField()
     birthplace=models.CharField(max_length=20)
-    history = HistoricalRecords()
+   
     
          
 class Departamento(models.Model):
@@ -25,7 +25,7 @@ class Dano(models.Model):
 class Afluente (models.Model):
     codRio = models.AutoField(primary_key=True)
     nombreAfluente=models.CharField(max_length=100)
-    history = HistoricalRecords()
+
     class Meta:
         
        

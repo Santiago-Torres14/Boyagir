@@ -12,11 +12,10 @@ import os
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter,URLRouter
 from channels.auth    import AuthMiddlewareStack
-from graphrealtime.routing import ws_urlpatterns
+from boyaapp.routing import ws_urlpatterns
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'boyagir.settings')
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     'websocket':AuthMiddlewareStack(URLRouter(ws_urlpatterns))
-    # Just HTTP for now. (We can add other protocols later.)
 })

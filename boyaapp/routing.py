@@ -1,6 +1,6 @@
 from django.urls import path
-from .consumers import GraphConsumer
+from .consumers import MeasurementDataConsumer
 
 ws_urlpatterns=[
-    path('ws/graph',GraphConsumer)
+    path('ws/measurement-data/', MeasurementDataConsumer.as_asgi())
 ]

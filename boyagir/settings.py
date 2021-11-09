@@ -33,6 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 # Application definition
 
@@ -46,16 +47,13 @@ INSTALLED_APPS = [
     'corsheaders',
     'boyaapp',
     'accounts',
-   
+    'channels',
     'knox',
-    'rest_framework',
-    
-   
-
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
-     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -85,7 +83,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'boyagir.wsgi.application'
-#ASGI_APPLICATION = 'boyagir.asgi.application'
+ASGI_APPLICATION = 'boyagir.asgi.application'
 
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -124,7 +122,7 @@ CHANNELS_LAYERS={
     'default':{
         'BACKEND':'channels_redis.core.RedisChannelLayer',
         'CONFIG':{
-            'hosts':[{'127.0.0.1',6379}]
+            'hosts':[('127.0.0.1',6379)]
         }
     }
 }
